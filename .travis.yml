@@ -2,7 +2,7 @@ before_install:
 - sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended
   texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng
 script:
-- mkdir pdfs
+- mkdir -p pdfs
 - pdflatex -output-directory pdfs example.tex
 - rm pdfs/*.aux
 deploy:
@@ -10,6 +10,5 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
   keep-history: true
-  target-branch: master
   on:
     branch: master
